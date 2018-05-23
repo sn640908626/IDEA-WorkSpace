@@ -1,0 +1,66 @@
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+#    register-with-eureka: false
+#    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8762/eureka/
+
+#spring:
+## 默认值为 /** 增加静态资源访问匹配
+#  mvc:
+##    static-path-pattern: /ylz/**  #直接访问url：http://localhost:8080/ylz/index.html
+#    # 视图层控制 用mvc方式访问templates下的HTML
+#    view:
+#      prefix: classpath:/templates/
+#      suffix: .html
+#  resources:
+#    # 默认值为 classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+#    static-locations: classpath:/templates/index/ #覆盖默认值 直接访问url：http://localhost:8080/index.html
+
+#  freemarker:
+#      allow-request-override: false
+#      cache: false
+#      check-template-location: true
+#      charset: UTF-8
+#      content-type: text/html; charset=utf-8
+#      expose-request-attributes: false
+#      expose-session-attributes: false
+#      expose-spring-macro-helpers: false
+#      suffix: .ftl
+#      template-loader-path: classpath:/templates/
+  #thymeleaf这样配置就可以直接访问static下的HTML（和mvc访问方式二选一）
+#  thymeleaf:
+#    mode: HTML
+#    encoding: utf-8
+#    servlet:
+#      content-type: text/html
+#    cache: false #开发时关闭缓存，不然没法看到实时页面
+#    #spring.freemarker.cache（Freemarker）
+#    #spring.groovy.template.cache（Groovy模板）
+#    #spring.velocity.cache（Velocity）
+#    prefix: classpath:/templates/
+#    suffix: .html
+  #mysql数据源配置
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/ylz?useUnicode=true&characterEncoding=utf8&useSSL=false
+#    username: root
+#    password: sn640908626
+    #可以不配置驱动，springboot会根据url自动识别，如果识别不了，再配置
+#    driver-class-name: com.mysql.jdbc.Driver
+#mybatis配置
+#mybatis:
+#  type-aliases-package: com.example.springbootgradle.model
+#  mapper-locations: classpath:mapper/*.xml
+#log文件位置（默认加载resource下的这个文件名）
+#logging:
+#  config: classpath:log4j2-spring.xml
+
+
+
